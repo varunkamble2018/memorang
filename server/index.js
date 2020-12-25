@@ -48,9 +48,12 @@ app.post("/api/addUserBook", (req,res) => {
       const  infoLink=req.body.infoLink;
       const  user_id=req.body.userId;
 
+      authors1 = authors.toString().replace(/'/g, "\\'");
+      publisher1 = publisher.toString().replace(/'/g, "\\'");
+
     const sqlInsert = "INSERT INTO user_books (user_id, googleBookId,thumbnail,title,pageCount,language,authors,publisher,description,previewLink,infoLink ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     
-    db.query(sqlInsert, [user_id,bookId,thumbnail,title,pageCount,language,authors,publisher,description,previewLink,infoLink], (err,result) => {
+    db.query(sqlInsert, [user_id,bookId,thumbnail,title,pageCount,language,authors1,publisher1,description,previewLink,infoLink], (err,result) => {
         //res.send(err);
         console.log(result);
         if(err){
