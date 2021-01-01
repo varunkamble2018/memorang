@@ -48,8 +48,8 @@ app.post("/api/addUserBook", (req,res) => {
       const  infoLink=req.body.infoLink;
       const  user_id=req.body.userId;
 
-      authors1 = authors.toString().replace(/'/g, "\\'");
-      publisher1 = publisher.toString().replace(/'/g, "\\'");
+      let authors1 = authors.toString().replace(/'/g, "\\'");
+      let publisher1 = publisher.toString().replace(/'/g, "\\'");
 
     const sqlInsert = "INSERT INTO user_books (user_id, googleBookId,thumbnail,title,pageCount,language,authors,publisher,description,previewLink,infoLink ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     
@@ -84,4 +84,5 @@ app.delete("/api/deleteUserBook", (req,res) => {
   
 } )
 
+module.exports = app;
 //module export index;

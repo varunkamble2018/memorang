@@ -25,7 +25,7 @@ const BookListItems = ({ userId, bookId,thumbnail,title,pageCount,language,descr
   const markFavorite = (e) => {
     
     try {
-      axios.post('http://localhost:3003/api/addUserBook', {
+      axios.post('https://b8opj6fxhg.execute-api.us-west-2.amazonaws.com/production/api/addUserBook', {
         bookId : bookId,
         thumbnail : thumbnail,
         title:title,
@@ -54,7 +54,7 @@ const BookListItems = ({ userId, bookId,thumbnail,title,pageCount,language,descr
 
   const markUnFavorite =()=> {
     try {
-      axios.delete('http://localhost:3003/api/deleteUserBook',
+      axios.delete('https://b8opj6fxhg.execute-api.us-west-2.amazonaws.com/production/api/deleteUserBook',
         {
           params: { bookId: String(bookId), userId:String(userInfo) }
         })

@@ -32,7 +32,7 @@ export default function Home() {
     setLoading(true);
     
     axios
-      .get( 'http://localhost:3003/api/getUserBooks', {
+      .get( 'https://b8opj6fxhg.execute-api.us-west-2.amazonaws.com/production/api/getUserBooks', {
           params: {
             userId:userInfo
           }
